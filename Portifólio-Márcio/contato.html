@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marcio — estudante de Sistemas de Informação na UVV. Portfólio, currículo e criação de sites.">
+  <title>Contato | Marcio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="topo">
+  <header class="topo">
+    <div class="container">
+      <a href="index.html" class="marca">Marcio<span>.</span></a>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-botao" aria-label="Abrir menu">☰</label>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="curriculo.html">Currículo</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html" class="ativo" aria-current="page">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="cabecalho">
+      <div class="container">
+        <h1>Contato</h1>
+        <p>Conte o que você precisa e eu envio uma proposta no horário que preferir.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contato-grid">
+        <div>
+          <h2>Vamos conversar</h2>
+          <p class="intro">Respondo em até 1 dia útil.</p>
+          <p>E-mail: <a href="mailto:seuemail@email.com">seuemail@email.com</a></p>
+          <p style="margin-top:10px">Ainda em dúvida sobre o plano? <a href="servicos.html#estaticos">Compare os preços</a>.</p>
+        </div>
+
+        <form id="form-contato" novalidate>
+          <fieldset>
+            <legend>Seus dados</legend>
+            <div class="campo">
+              <label for="nome">Nome completo *</label>
+              <input type="text" id="nome" name="nome" placeholder="Ex.: Ana Beatriz Costa" autocomplete="name">
+              <span class="erro-msg"></span>
+            </div>
+            <div class="linha2">
+              <div class="campo">
+                <label for="telefone">Telefone *</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(27) 99999-9999" autocomplete="tel">
+                <span class="erro-msg"></span>
+              </div>
+              <div class="campo">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" placeholder="nome@email.com" autocomplete="email">
+                <span class="erro-msg"></span>
+              </div>
+            </div>
+            <div class="campo">
+              <span class="rotulo">Você é *</span>
+              <div class="opcoes">
+                <label><input type="radio" name="tipo_pessoa" value="fisica" checked> Pessoa física</label>
+                <label><input type="radio" name="tipo_pessoa" value="juridica"> Pessoa jurídica</label>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="documento" id="label-documento">CPF (opcional)</label>
+              <input type="text" id="documento" name="documento" placeholder="000.000.000-00">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Melhor horário para contato</legend>
+            <div class="campo">
+              <div class="opcoes">
+                <label><input type="checkbox" name="horario" value="manha"> Manhã</label>
+                <label><input type="checkbox" name="horario" value="tarde"> Tarde</label>
+                <label><input type="checkbox" name="horario" value="noite"> Noite</label>
+              </div>
+              <span class="erro-msg" id="erro-horario"></span>
+            </div>
+            <div class="linha2">
+              <div class="campo">
+                <label for="data">A partir de qual dia?</label>
+                <input type="date" id="data" name="data">
+              </div>
+              <div class="campo">
+                <label for="meio">Prefere contato por</label>
+                <select id="meio" name="meio">
+                  <option>WhatsApp</option><option>Ligação</option><option>E-mail</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Sobre o site</legend>
+            <div class="linha2">
+              <div class="campo">
+                <label for="servico">Tipo de serviço *</label>
+                <select id="servico" name="servico">
+                  <option value="">Selecione</option>
+                  <option value="estatico-1-2">Site estático — 1 a 2 páginas</option>
+                  <option value="estatico-3-5">Site estático — 3 a 5 páginas</option>
+                  <option value="estatico-5mais">Site estático — mais de 5 páginas</option>
+                  <option value="dinamico">Site dinâmico</option>
+                  <option value="avancado">Site super avançado</option>
+                  <option value="nao-sei">Não sei, quero ajuda</option>
+                </select>
+                <span class="erro-msg"></span>
+              </div>
+              <div class="campo">
+                <label for="negocio">Tipo de negócio</label>
+                <input type="text" id="negocio" name="negocio" list="lista-negocios" placeholder="Escolha ou digite">
+                <datalist id="lista-negocios">
+                  <option value="Restaurante"><option value="Academia"><option value="Livraria"><option value="Cafeteria"><option value="Escolinha de futebol"><option value="Escolinha de vôlei">
+                </datalist>
+              </div>
+            </div>
+            <div class="linha2">
+              <div class="campo">
+                <label for="paginas">Quantas páginas, mais ou menos?</label>
+                <input type="number" id="paginas" name="paginas" min="1" max="50" value="3">
+              </div>
+              <div class="campo">
+                <label for="orcamento">Orçamento: R$ <output id="orcamento-valor">1500</output></label>
+                <input type="range" id="orcamento" name="orcamento" min="500" max="10000" step="100" value="1500">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="descricao">Descreva brevemente o que deseja contratar *</label>
+              <textarea id="descricao" name="descricao" maxlength="600" placeholder="Ex.: Quero um site para minha cafeteria com cardápio e botão do WhatsApp."></textarea>
+              <span class="ajuda"><span id="contador">0</span>/600 caracteres</span>
+              <span class="erro-msg"></span>
+            </div>
+            <div class="campo">
+              <label class="opcoes"><input type="checkbox" id="aceite" name="aceite"> <span style="font-weight:400">Autorizo o uso dos meus dados só para receber a proposta.</span></label>
+              <span class="erro-msg"></span>
+            </div>
+          </fieldset>
+
+          <div class="acoes" style="margin-top:0">
+            <button type="submit" class="botao">Enviar pedido</button>
+            <button type="reset" class="botao escuro">Limpar</button>
+          </div>
+          <div class="sucesso" id="sucesso" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>Marcio</h4>
+        <p>Estudante de Sistemas de Informação na UVV, bacharel em Direito e criador de sites sob medida.</p>
+      </div>
+      <div>
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="curriculo.html">Currículo</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links externos</h4>
+        <ul>
+          <li><a href="https://www.uvv.br/" target="_blank" rel="noopener">UVV</a></li>
+          <li><a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">Meu GitHub</a></li>
+          <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noopener">MDN — HTML</a></li>
+        </ul>
+      </div>
+      <p class="copy">© 2026 Marcio · Trabalho acadêmico de Desenvolvimento Web — UVV</p>
+    </div>
+  </footer>
+  <a href="#topo" class="voltar-topo" aria-label="Voltar ao topo">↑</a>
+  <script src="js/script.js"></script>
+</body>
+</html>
