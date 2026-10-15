@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marcio — estudante de Sistemas de Informação na UVV. Portfólio, currículo e criação de sites.">
+  <title>Currículo | Marcio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+/* ===== Portfólio Marcio — folha de estilo ===== */
+:root {
+  --navy: #0f1b2d;
+  --navy-2: #16243a;
+  --navy-3: #2c3e5c;
+  --creme: #f4f1ea;
+  --creme-2: #e9e3d6;
+  --tinta: #141a22;
+  --cinza: #56606c;
+  --coral: #e4572e;
+  --coral-escuro: #b5432a;
+  --azul-claro: #9fb3c8;
+  --erro: #b3261e;
+  --titulo: 'Bricolage Grotesque', 'Segoe UI', Arial, sans-serif;
+  --texto: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  --largura: 1120px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { font-family: var(--texto); background: var(--creme); color: var(--tinta); line-height: 1.6; font-size: 17px; }
+img, video, audio { max-width: 100%; display: block; }
+a { color: var(--coral-escuro); }
+a:hover { color: var(--navy); }
+.container { width: min(var(--largura), 100% - 40px); margin-inline: auto; }
+
+/* ---------- Menu ---------- */
+.topo { position: sticky; top: 0; z-index: 20; background: var(--navy); }
+.topo .container { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+.marca { font-family: var(--titulo); font-weight: 800; font-size: 1.45rem; color: var(--creme); text-decoration: none; letter-spacing: -.02em; }
+.marca span { color: var(--coral); }
+.menu ul { list-style: none; display: flex; gap: 6px; }
+.menu a { display: block; color: var(--creme); text-decoration: none; padding: 8px 14px; border-radius: 999px; font-size: .95rem; }
+.menu a:hover { background: var(--navy-3); color: var(--creme); }
+.menu a.ativo { background: var(--coral); color: #fff; }
+#menu-toggle, .menu-botao { display: none; }
+
+/* ---------- Cabeçalho de página ---------- */
+.cabecalho { background: var(--navy); color: var(--creme); padding: 72px 0 64px; }
+.cabecalho h1 { font-family: var(--titulo); font-weight: 800; font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1; letter-spacing: -.03em; }
+.cabecalho p { color: var(--azul-claro); font-size: 1.15rem; margin-top: 18px; max-width: 38em; }
+
+/* Hero da home com foto */
+.hero .container { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; }
+.hero .foto { position: relative; }
+.hero .foto img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 6px; }
+.hero .foto::after { content: ''; position: absolute; inset: 14px -14px -14px 14px; border: 3px solid var(--coral); border-radius: 6px; z-index: -1; }
+.hero .foto { z-index: 0; }
+.selo { display: inline-flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.selo span { border: 1px solid var(--navy-3); color: var(--creme); padding: 6px 14px; border-radius: 999px; font-size: .9rem; }
+
+/* ---------- Seções ---------- */
+section { padding: 76px 0; }
+.alt { background: var(--creme-2); }
+h2 { font-family: var(--titulo); font-weight: 800; font-size: clamp(1.8rem, 3.6vw, 2.6rem); letter-spacing: -.02em; line-height: 1.1; margin-bottom: 16px; }
+h3 { font-family: var(--titulo); font-weight: 700; font-size: 1.3rem; margin-bottom: 8px; }
+.intro { color: var(--cinza); max-width: 42em; margin-bottom: 34px; }
+.duas { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.duas p + p { margin-top: 14px; }
+
+/* Índice ancorado da home */
+.indice { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+.indice a { color: var(--creme); text-decoration: none; font-size: .9rem; padding: 6px 12px; background: var(--navy-2); border-radius: 4px; }
+.indice a:hover { background: var(--coral); color: #fff; }
+
+/* Cartões */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.card { background: #fff; border: 1px solid #dcd4c3; border-radius: 6px; padding: 24px; }
+.card .icone { font-size: 1.8rem; line-height: 1; margin-bottom: 12px; display: block; }
+.card p { color: var(--cinza); font-size: .95rem; }
+
+/* Barras de habilidade */
+.habilidades { list-style: none; }
+.habilidades li { margin-bottom: 16px; }
+.habilidades .nome { display: flex; justify-content: space-between; font-size: .95rem; font-weight: 600; }
+.barra { height: 8px; background: #dcd4c3; border-radius: 99px; overflow: hidden; margin-top: 6px; }
+.barra span { display: block; height: 100%; background: var(--coral); border-radius: 99px; }
+
+/* Linha do tempo (sequência real) */
+.timeline { list-style: none; border-left: 3px solid var(--coral); padding-left: 26px; }
+.timeline li { position: relative; padding-bottom: 26px; }
+.timeline li::before { content: ''; position: absolute; left: -35px; top: 6px; width: 15px; height: 15px; border-radius: 50%; background: var(--creme); border: 3px solid var(--coral); }
+.timeline .quando { font-size: .85rem; color: var(--coral-escuro); font-weight: 600; }
+.timeline strong { display: block; font-family: var(--titulo); font-size: 1.15rem; }
+
+/* ---------- Tabelas ---------- */
+.tabela-wrap { overflow-x: auto; border-radius: 6px; border: 1px solid #dcd4c3; background: #fff; }
+table { width: 100%; border-collapse: collapse; min-width: 620px; }
+caption { text-align: left; padding: 14px 18px; font-family: var(--titulo); font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid #dcd4c3; }
+th, td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid #eee6d6; }
+thead th { background: var(--navy); color: var(--creme); font-weight: 600; font-size: .9rem; }
+tbody tr:nth-child(even) { background: #faf7f1; }
+tbody tr:hover { background: #fdeee8; }
+.preco { font-family: var(--titulo); font-weight: 800; font-size: 1.25rem; color: var(--coral-escuro); white-space: nowrap; }
+tr.destaque { outline: 2px solid var(--coral); outline-offset: -2px; }
+.tag { display: inline-block; font-size: .78rem; background: var(--coral); color: #fff; padding: 2px 8px; border-radius: 99px; margin-left: 6px; vertical-align: middle; }
+
+/* ---------- Mídia ---------- */
+.midia { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: start; }
+.midia video { width: 100%; border-radius: 6px; background: var(--navy); }
+.player { background: var(--navy); color: var(--creme); border-radius: 6px; padding: 24px; }
+.player p { color: var(--azul-claro); font-size: .92rem; margin: 6px 0 16px; }
+.player audio { width: 100%; }
+.legenda { font-size: .85rem; color: var(--cinza); margin-top: 8px; }
+
+/* ---------- Botões ---------- */
+.botao { display: inline-block; padding: 13px 26px; border-radius: 4px; font-weight: 600; text-decoration: none; border: 2px solid var(--coral); background: var(--coral); color: #fff; cursor: pointer; font-family: var(--texto); font-size: .95rem; }
+.botao:hover { background: var(--coral-escuro); border-color: var(--coral-escuro); color: #fff; }
+.botao.linha { background: transparent; color: var(--creme); border-color: var(--creme); }
+.botao.linha:hover { background: var(--creme); color: var(--navy); }
+.botao.escuro { background: transparent; color: var(--navy); border-color: var(--navy); }
+.botao.escuro:hover { background: var(--navy); color: var(--creme); }
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+/* ---------- Currículo ---------- */
+.cv { background: #fff; border: 1px solid #dcd4c3; border-radius: 6px; padding: 48px; display: grid; grid-template-columns: 1fr 2.2fr; gap: 44px; }
+.cv aside h3, .cv .bloco h3 { font-size: 1rem; text-transform: none; color: var(--coral-escuro); border-bottom: 2px solid var(--creme-2); padding-bottom: 6px; margin: 26px 0 12px; }
+.cv aside h3:first-child, .cv .bloco:first-child h3 { margin-top: 0; }
+.cv ul { list-style: none; }
+.cv aside li { margin-bottom: 6px; font-size: .95rem; }
+.cv .exp { margin-bottom: 20px; }
+.cv .exp strong { font-family: var(--titulo); font-size: 1.1rem; }
+.cv .exp .periodo { font-size: .85rem; color: var(--cinza); display: block; }
+.cv .exp ul { list-style: disc; margin: 6px 0 0 20px; color: var(--cinza); font-size: .95rem; }
+
+/* ---------- GitHub ---------- */
+.github-card { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.github-card img { border-radius: 10px; box-shadow: 0 18px 40px rgba(15,27,45,.25); }
+
+/* ---------- Formulário ---------- */
+.contato-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 52px; }
+form { background: #fff; border: 1px solid #dcd4c3; border-radius: 6px; padding: 32px; }
+fieldset { border: none; margin-bottom: 24px; }
+legend { font-family: var(--titulo); font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; }
+.linha2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.campo { display: flex; flex-direction: column; margin-bottom: 16px; }
+label, .rotulo { font-size: .9rem; font-weight: 600; margin-bottom: 6px; }
+input[type=text], input[type=tel], input[type=email], input[type=date], input[type=number], select, textarea {
+  font: inherit; font-size: 1rem; padding: 11px 12px; border: 1px solid #c7bea9; border-radius: 4px; background: #fff; color: var(--tinta);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--coral); outline-offset: 1px; border-color: var(--coral); }
+textarea { min-height: 120px; resize: vertical; }
+.opcoes { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.opcoes label { font-weight: 400; display: flex; align-items: center; gap: 8px; margin: 0; cursor: pointer; }
+input[type=radio], input[type=checkbox], input[type=range] { accent-color: var(--coral); }
+input[type=radio], input[type=checkbox] { width: 18px; height: 18px; }
+.ajuda { font-size: .82rem; color: var(--cinza); margin-top: 5px; }
+.erro-msg { font-size: .85rem; color: var(--erro); margin-top: 5px; }
+.campo.invalido input, .campo.invalido select, .campo.invalido textarea { border-color: var(--erro); }
+.sucesso { display: none; margin-top: 18px; padding: 16px; border-left: 4px solid var(--coral); background: #fdeee8; }
+.sucesso.mostrar { display: block; }
+
+/* ---------- Rodapé ---------- */
+footer { background: var(--navy); color: var(--azul-claro); padding: 48px 0 26px; font-size: .92rem; }
+footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+footer h4 { color: var(--creme); font-family: var(--titulo); margin-bottom: 10px; }
+footer ul { list-style: none; }
+footer li { margin: 6px 0; }
+footer a { color: var(--creme); }
+footer a:hover { color: var(--coral); }
+.copy { grid-column: 1 / -1; border-top: 1px solid var(--navy-3); padding-top: 18px; font-size: .82rem; }
+.voltar-topo { position: fixed; right: 18px; bottom: 18px; width: 44px; height: 44px; display: grid; place-items: center; background: var(--coral); color: #fff; text-decoration: none; border-radius: 50%; font-size: 1.2rem; z-index: 30; }
+.voltar-topo:hover { background: var(--navy); color: #fff; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 920px) {
+  .hero .container, .duas, .midia, .github-card, .contato-grid, .cv { grid-template-columns: 1fr; gap: 32px; }
+  .hero .foto { max-width: 340px; }
+  .cv { padding: 28px; }
+  footer .container { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .menu-botao { display: block; color: var(--creme); font-size: 1.7rem; cursor: pointer; padding: 6px; }
+  .menu { position: absolute; top: 70px; left: 0; right: 0; background: var(--navy); max-height: 0; overflow: hidden; transition: max-height .3s; }
+  .menu ul { flex-direction: column; padding: 8px 16px 16px; }
+  #menu-toggle:checked ~ .menu { max-height: 420px; }
+  .cabecalho { padding: 48px 0 44px; }
+  section { padding: 54px 0; }
+  .linha2 { grid-template-columns: 1fr; gap: 0; }
+  form { padding: 22px; }
+  footer .container { grid-template-columns: 1fr; }
+}
+
+/* ---------- Impressão do currículo ---------- */
+@media print {
+  .topo, footer, .voltar-topo, .cabecalho, .nao-imprimir { display: none !important; }
+  body { background: #fff; }
+  section { padding: 0; }
+  .cv { border: none; padding: 0; }
+}
+
+</style>
+</head>
+<body id="topo">
+  <header class="topo">
+    <div class="container">
+      <a href="index.html" class="marca">Marcio<span>.</span></a>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-botao" aria-label="Abrir menu">☰</label>
+      <nav class="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="curriculo.html" class="ativo" aria-current="page">Currículo</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="cabecalho">
+      <div class="container">
+        <h1>Currículo</h1>
+        <p>Experiências, formação e o que estou preparado para fazer.</p>
+        <div class="acoes"><button class="botao" onclick="window.print()">Imprimir / salvar em PDF</button></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <article class="cv">
+          <aside>
+            <h3>Dados</h3>
+            <ul>
+              <li><strong>Márcio Rosa Soares</strong></li>
+              <li>Vila Velha – ES</li>
+              <li><a href="mailto:seuemail@email.com">seuemail@email.com</a></li>
+              <li><a href="https://github.com/mrsvnte" target="_blank" rel="noopener">github.com/mrsvnte</a></li>
+            </ul>
+            <h3>Habilidades</h3>
+            <ul>
+              <li>HTML, CSS e JavaScript</li>
+              <li>Wireframes e UX (Balsamiq)</li>
+              <li>Modelagem de dados (brModelo)</li>
+              <li>Excel avançado</li>
+              <li>Meta Ads</li>
+              <li>Edição de vídeo (CapCut)</li>
+              <li>Redação jurídica e ABNT</li>
+            </ul>
+            <h3>Idiomas</h3>
+            <ul>
+              <li>Português — nativo</li>
+              <li>Inglês — Intermediário</li>
+            </ul>
+          </aside>
+
+          <div>
+            <div class="bloco">
+              <h3>Objetivo</h3>
+              <p>Atuar com desenvolvimento web e produtos digitais, criando sites e sistemas para pequenos negócios, unindo tecnologia com a experiência em Direito.</p>
+            </div>
+            <div class="bloco">
+              <h3>Experiência</h3>
+              <div class="exp">
+                <strong>Fundador — RendaVital</strong>
+                <span class="periodo">2026 – atual · Negócio digital de educação financeira</span>
+                <ul>
+                  <li>Estruturei a oferta de um infoproduto sobre dividendos, fundos imobiliários e renda fixa.</li>
+                  <li>Planejei campanhas no Meta Ads e criei planilhas de simulação de retorno (ROI).</li>
+                  <li>Escrevi artigos de blog sobre os pilares de investimento.</li>
+                </ul>
+              </div>
+              <div class="exp">
+                <strong>Criador de conteúdo</strong>
+                <span class="periodo">2025 – atual · Kwai</span>
+                <ul>
+                  <li>Roteiros, calendário de postagens e edição de vídeos curtos de games e finanças.</li>
+                </ul>
+              </div>
+              <div class="exp">
+                <strong>Desenvolvedor web — projetos acadêmicos</strong>
+                <span class="periodo">2026 – atual · UVV</span>
+                <ul>
+                  <li>Landing pages responsivas em HTML e CSS, publicadas no GitHub Pages.</li>
+                  <li>Wireframes com mensagens de erro baseadas nas heurísticas de Nielsen.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="bloco">
+              <h3>Formação</h3>
+              <div class="tabela-wrap">
+                <table>
+                  <thead><tr><th>Curso</th><th>Instituição</th><th>Situação</th></tr></thead>
+                  <tbody>
+                    <tr><td>Sistemas de Informação</td><td>UVV</td><td>Em andamento</td></tr>
+                    <tr><td>Direito (bacharelado)</td><td>[EDITAR]</td><td>Concluído</td></tr>
+                    <tr><td>[EDITAR: curso livre]</td><td>[EDITAR]</td><td>[EDITAR]</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+        <p class="nao-imprimir" style="margin-top:28px">Gostou do perfil? <a href="contato.html">Fale comigo</a> ou veja meus <a href="github.html">projetos no GitHub</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>
+        <h4>Marcio</h4>
+        <p>Estudante de Sistemas de Informação na UVV, bacharel em Direito e criador de sites sob medida.</p>
+      </div>
+      <div>
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="curriculo.html">Currículo</a></li>
+          <li><a href="github.html">GitHub</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links externos</h4>
+        <ul>
+          <li><a href="https://www.uvv.br/" target="_blank" rel="noopener">UVV</a></li>
+          <li><a href="https://github.com/mrsvnte" target="_blank" rel="noopener">Meu GitHub</a></li>
+          <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noopener">MDN — HTML</a></li>
+        </ul>
+      </div>
+      <p class="copy">© 2026 Marcio · Trabalho acadêmico de Construção de Site para Web — UVV</p>
+    </div>
+  </footer>
+  <a href="#topo" class="voltar-topo" aria-label="Voltar ao topo">↑</a>
+  <script>
+// ===== Menu: fecha no celular ao clicar em um link =====
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const toggle = document.getElementById('menu-toggle');
+    if (toggle) toggle.checked = false;
+  });
+});
+
+// ===== Formulário de contato (só existe em contato.html) =====
+const form = document.getElementById('form-contato');
+if (form) {
+  const $ = id => document.getElementById(id);
+
+  // Pré-seleciona o plano vindo da página de serviços (contato.html?plano=...)
+  const plano = new URLSearchParams(location.search).get('plano');
+  if (plano && $('servico').querySelector(`option[value="${plano}"]`)) $('servico').value = plano;
+
+  // CPF ou CNPJ conforme o tipo de pessoa
+  document.querySelectorAll('input[name="tipo_pessoa"]').forEach(r => r.addEventListener('change', () => {
+    const pj = document.querySelector('input[name="tipo_pessoa"]:checked').value === 'juridica';
+    $('label-documento').textContent = pj ? 'CNPJ (opcional)' : 'CPF (opcional)';
+    $('documento').placeholder = pj ? '00.000.000/0000-00' : '000.000.000-00';
+  }));
+
+  // Valor do orçamento e contador de caracteres
+  $('orcamento').addEventListener('input', e => { $('orcamento-valor').textContent = Number(e.target.value).toLocaleString('pt-BR'); });
+  $('descricao').addEventListener('input', e => { $('contador').textContent = e.target.value.length; });
+
+  function erro(campo, msg) {
+    const bloco = campo.closest('.campo');
+    bloco.classList.toggle('invalido', !!msg);
+    const span = bloco.querySelector('.erro-msg');
+    if (span) span.textContent = msg || '';
+    return !msg;
+  }
+
+  function validar() {
+    let ok = true;
+    ok &= erro($('nome'), $('nome').value.trim().split(/\s+/).length < 2 ? 'Digite nome e sobrenome.' : '');
+    ok &= erro($('telefone'), $('telefone').value.replace(/\D/g, '').length < 10 ? 'Digite o telefone com DDD. Ex.: (27) 99999-9999' : '');
+    ok &= erro($('email'), /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('email').value) ? '' : 'E-mail inválido. Ex.: nome@email.com');
+    ok &= erro($('servico'), $('servico').value ? '' : 'Escolha o tipo de serviço.');
+    ok &= erro($('descricao'), $('descricao').value.trim().length >= 15 ? '' : 'Conte um pouco mais (mínimo 15 caracteres).');
+    ok &= erro($('aceite'), $('aceite').checked ? '' : 'Marque a autorização para eu poder responder.');
+    const temHorario = document.querySelectorAll('input[name="horario"]:checked').length > 0;
+    $('erro-horario').textContent = temHorario ? '' : 'Escolha pelo menos um horário.';
+    return ok && temHorario;
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const sucesso = $('sucesso');
+    if (!validar()) {
+      sucesso.classList.remove('mostrar');
+      form.querySelector('.invalido input, .invalido select, .invalido textarea')?.focus();
+      return;
+    }
+    const primeiroNome = $('nome').value.trim().split(' ')[0];
+    sucesso.textContent = `Obrigado, ${primeiroNome}! Recebi seu pedido e vou enviar a proposta no horário escolhido.`;
+    sucesso.classList.add('mostrar');
+    form.reset();
+    $('contador').textContent = '0';
+    $('orcamento-valor').textContent = '1.500';
+  });
+
+  form.addEventListener('reset', () => {
+    form.querySelectorAll('.campo').forEach(c => c.classList.remove('invalido'));
+    form.querySelectorAll('.erro-msg').forEach(s => (s.textContent = ''));
+  });
+}
+
+</script>
+</body>
+</html>
